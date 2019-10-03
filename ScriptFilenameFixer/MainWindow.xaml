@@ -1,0 +1,27 @@
+﻿<Window x:Class="ScriptFilenameFixer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ScriptFilenameFixer"
+        d:DataContext="{d:DesignInstance Type=local:MainViewModel}"
+        mc:Ignorable="d"
+        Title="Scripts filename fixer" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="pathText" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding DirPath}" VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <ScrollViewer  Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
+            <TextBlock x:Name="OutputText" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding OutputString}" VerticalAlignment="Top"/>
+        </ScrollViewer>
+        <Button x:Name="FixButton" Command="{Binding FixCommand}" Content="FIX" HorizontalAlignment="Center" Margin="5" Grid.Row="2" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="SetPathButton" Command="{Binding ChangePathCommand}" Content="..." HorizontalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
+    </Grid>
+</Window>
